@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+  <title>Controle de Despesas</title>
+</head>
+
+<body>
+
+  <form>
+    <fieldset>
+      <legend>Cadastro de Contas</legend>
+      <label>Data de Vencimento</label>
+      <input type="date" id="data-vencimento-conta" placeholder="DD/MM/AAAA"><br><br>
+      <label>Conta</label>
+      <input type="text" id="nome-conta" placeholder="Ex: água, luz..."><br><br>
+      <label>Valor</label>
+      <input type="text" id="valor-conta" placeholder="R$ 0,00"
+        onkeypress="$(this).mask('R$ #.##0,00', {reverse: true});"><br><br>
+      <button type="button" id="cadastrar-conta" onclick="cadastrarConta()">CADASTRAR CONTA</button>
+      <button type="button" id="limpar-campos" onclick="limparCampos()">LIMPAR</button>
+    </fieldset>
+
+    <br>
+    <button type="button" id="listar-contas" onclick="listarContas()">LISTAR CONTAS</button>
+
+    <div id="lista-contas" style="display:none;">
+      <table id="tabela-contas">
+        <thead>
+          <tr>
+            <th>Data de Vencimento</th>
+            <th>Conta</th>
+            <th>Valor</th>
+            <th>Conta Paga</th>
+            <th>Deletar Conta</th>
+          </tr>
+        </thead>
+        <tbody id="contas-cadastradas"></tbody>
+      </table>
+
+      <button type="button" id="deletar-contas" onclick="deletarContas()">DELETAR CONTA(S)</button>
+      <button type="button" id="pagar-contas" onclick="pagarContas()">PAGAR CONTA(S)</button>
+    </div>
+  </form>
+
+  <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>
